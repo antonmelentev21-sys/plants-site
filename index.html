@@ -144,6 +144,55 @@
       <a href="#catalog" class="btn">Смотреть каталог</a>
     </div>
   </section>
+<!-- Фильтры и сортировка -->
+<section class="filters-section container">
+  <h3 class="section-title" style="text-align: left; margin-bottom: 20px;">Фильтры</h3>
+  <div class="filters-row">
+    <button class="filter-btn active" data-filter="all">Все</button>
+    <button class="filter-btn" data-filter="low-maintenance">Неприхотливые</button>
+    <button class="filter-btn" data-filter="shade">Для тени</button>
+    <button class="filter-btn" data-filter="large">Крупные</button>
+  </div>
+  <div class="sort-row">
+    <label for="sort">Сортировка:</label>
+    <select id="sort">
+      <option value="default">По умолчанию</option>
+      <option value="price-low">Цена: сначала дешёвые</option>
+      <option value="price-high">Цена: сначала дорогие</option>
+      <option value="name-asc">По названию (А–Я)</option>
+    </select>
+  </div>
+</section>
+
+<!-- Сетка товаров (заполняется JS) -->
+<section class="popular-plants">
+  <div class="container">
+    <h2 class="section-title">Популярные растения</h2>
+    <div class="cards-grid" id="plants-grid">
+      <!-- Карточки будут здесь -->
+    </div>
+  </div>
+</section>
+
+<!-- Форма обратной связи -->
+<section class="contact-section container">
+  <h2 class="section-title">Нужна консультация?</h2>
+  <form class="contact-form" id="contact-form">
+    <div class="form-group">
+      <label for="name">Ваше имя</label>
+      <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Телефон</label>
+      <input type="tel" id="phone" name="phone" placeholder="+7 (999) 000-00-00" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Комментарий</label>
+      <textarea id="message" name="message" rows="4" placeholder="Расскажите о своём пространстве..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-full">Отправить заявку</button>
+  </form>
+</section>
 
   <section id="catalog" class="products">
     <div class="container">
