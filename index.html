@@ -261,5 +261,133 @@
       <p style="margin-top:16px;">© 2024 PlantMinimal. Не является публичной офертой.</p>
     </div>
   </footer>
+  <script>
+  const plants = [
+    {
+      id: 1,
+      name: 'Сансевиерия (щучий хвост)',
+      image: 'img/sansevieria.jpg',
+      desc: 'Неприхотливое растение с вертикальными жёсткими листьями. Идеально для новичков.',
+      price: 1800,
+      tags: ['low-maintenance', 'shade']
+    },
+    {
+      id: 2,
+      name: 'Замиокулькас (долларовое дерево)',
+      image: 'img/zamioculcas.jpg',
+      desc: 'Эффектное растение с глянцевыми листьями. Переносит редкий полив и тень.',
+      price: 2400,
+      tags: ['low-maintenance', 'shade']
+    },
+    {
+      id: 3,
+      name: 'Монстера деликатесная',
+      image: 'img/monstera.jpg',
+      desc: 'Крупное растение с резными листьями. Добавит тропический акцент в интерьер.',
+      price: 3200,
+      tags: ['large']
+    },
+    {
+      id: 4,
+      name: 'Аглаонема',
+      image: 'img/aglaonema.jpg',
+      desc: 'Компактное растение с пёстрыми листьями. Хорошо растёт в полутени.',
+      price: 1900,
+      tags: ['low-maintenance', 'shade']
+    },
+    {
+      id: 5,
+      name: 'Фикус Лирата',
+      image: 'img/ficus-lyrata.jpg',
+      desc: 'Крупное стильное растение с фигурными листьями. Любит яркий рассеянный свет.',
+      price: 4500,
+      tags: ['large']
+    },
+    {
+      id: 6,
+      name: 'Пеперомия туполистная',
+      image: 'img/peperomia.jpg',
+      desc: 'Милое компактное растение с мясистыми листьями. Не требует сложного ухода.',
+      price: 1200,
+      tags: ['low-maintenance']
+    }
+  ];
+
+  const grid = document.getElementById('plants-grid');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const sortSelect = document.getElementById('sort');
+  const form = document.getElementById('contact-form');
+
+  function renderPlants(plantsToRender) {
+    grid.innerHTML = '';
+    plantsToRender.forEach(plant => {
+      const card = document.createElement('article');
+      card.className = 'plant-card';
+      card.innerHTML = `
+        <div class="card-image-wrapper">
+          <img src="${plant.image}" alt="${plant.name}" loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3 class="plant-name">\${plant.name}</h3>
+          <p class="plant-desc">\${plant.desc}</p>
+          <div class="card-actions">
+            <span class="plant-price">\${plant.price.toLocaleString('ru-RU')} ₽</span>
+            <a href="#" class="btn">В корзину</a>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      let filtered = plants;
+      if (filter !== 'all') {
+        filtered = plants.filter(p => p.tags.includes(filter));
+      }
+      applySort(filtered, sortSelect.value);
+    });
+  });
+
+  function applySort(plantsToSort, sortType) {
+    let sorted = [...plantsToSort];
+    switch (sortType) {
+      case 'price-low':
+        sorted.sort((a, b) => a.price - b.price);
+        break;
+      case 'price-high':
+        sorted.sort((a, b) => b.price - a.price);
+        break;
+      case 'name-asc':
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      default:
+        break;
+    }
+    renderPlants(sorted);
+  }
+
+  sortSelect.addEventListener('change', (e) => {
+    const currentFilter = Array.from(filterBtns).find(b => b.classList.contains('active')).getAttribute('data-filter');
+    let filtered = plants;
+    if (currentFilter !== 'all') {
+      filtered = plants.filter(p => p.tags.includes(currentFilter));
+    }
+    applySort(filtered, e.target.value);
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+    form.reset();
+  });
+
+  renderPlants(plants);
+</script>
+
 </body>
 </html>
