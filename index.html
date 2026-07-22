@@ -388,6 +388,184 @@
 
   renderPlants(plants);
 </script>
+  .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.filters-section {
+  padding: 40px 20px;
+}
+
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  padding: 10px 18px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--text, #333);
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: #e0e0e0;
+}
+
+.filter-btn.active {
+  background: var(--accent, #2e8b57);
+  color: #fff;
+}
+
+.sort-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sort-row label {
+  font-weight: 600;
+  color: var(--text, #333);
+}
+
+.sort-row select {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #ddd);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.plant-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.card-image-wrapper {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.plant-name {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text, #333);
+}
+
+.plant-desc {
+  color: #555;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.plant-price {
+  font-weight: 700;
+  color: var(--text, #333);
+  font-size: 1.1rem;
+}
+
+.btn-full {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent, #2e8b57);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-full:hover {
+  opacity: 0.9;
+}
+
+.contact-section {
+  padding: 60px 20px;
+  background: #fafafa;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text, #333);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #ddd);
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent, #2e8b57);
+}
+
 
 </body>
 </html>
